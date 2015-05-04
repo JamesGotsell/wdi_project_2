@@ -6,4 +6,9 @@ Rails.application.routes.draw do
   root 'users#index'
   devise_for :users, controllers: { omniauth_callbacks: "omniauth_callbacks" }
    resources :users, only: [:index, :show]
+
+  resources :coffeeshops do
+    resources :reviews, only: :create
+  end
+
 end
