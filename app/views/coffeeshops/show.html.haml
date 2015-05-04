@@ -20,9 +20,10 @@
   = @coffeeshop.picture
 %p
   %b User:
-  = @coffeeshop.user.inspect
+  = @coffeeshop.user
 
 %h3 Reviews
-= render @coffeeshop.reviews
+= render :partial => 'reviews/review'
+-# = render @coffeeshop.reviews
 = render :partial => 'reviews/form'
 

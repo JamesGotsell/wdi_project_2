@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
     user
   end
 
-   mount_uploader :profile_pic, ProfileUploader
+  # mount_uploader :profile_pic, ProfileUploader
 
 
 end
