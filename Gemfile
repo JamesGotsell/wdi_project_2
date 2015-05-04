@@ -8,6 +8,11 @@ gem 'haml-rails', '0.9.0'
 gem 'geocoder'
 gem 'ransack'
 gem 'cancancan', '~> 1.10'
+gem 'devise', '3.4.1'
+gem 'omniauth', '1.2.2'
+gem 'omniauth-facebook', '2.0.1'
+gem "carrierwave", "0.10.0"
+gem "rmagick"
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
