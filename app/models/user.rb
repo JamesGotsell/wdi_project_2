@@ -46,12 +46,11 @@ class User < ActiveRecord::Base
       # If you use confirmable module 
       # user.skip_confirmation!
       user.save!
-    end
-    
+    end 
     user
   end
 
-  
+  mount_uploader :profile_pic, ProfilePicUploader
 
 
 end

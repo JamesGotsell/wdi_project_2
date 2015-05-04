@@ -5,4 +5,6 @@ class Coffeeshop < ActiveRecord::Base
   validates :name, presence: true, length: { minimum: 2 }
   validates :description, length: { maximum: 500 }
   validates :address, presence: true 
+
+  mount_uploader :picture, PictureUploader
 end
