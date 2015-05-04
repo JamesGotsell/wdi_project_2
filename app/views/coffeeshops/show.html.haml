@@ -23,30 +23,31 @@
   = @coffeeshop.user
 
 %h3 Reviews
-  = render @coffeeshop.reviews
-  %h4 Add a review
-  = form_for [@coffeeshop, @coffeeshop.reviews.build] do |f|
-    - if @coffeeshop.errors.any?
-      #error_explanation
-        %h2
-          = pluralize(@coffeeshop.errors.count, "error")
-          prohibited this coffeeshop from being saved:
-        %ul
-          - @coffeeshop.errors.full_messages.each do |message|
-            %li= message
-    - if !current_user.nil?
-      = hidden_field_tag :user_id, current_user.id
-    .field
-      = f.label :rating
-      %br
-        = f.text_field :rating
-    .field
-      = f.label :body
-      %br
-        = f.text_area :body
-    .actions
-      = f.submit 
+= render @coffeeshop.reviews
+= render :partial => 'reviews/form'
 
-= link_to 'Edit', edit_coffeeshop_path(@coffeeshop)
-\|
-= link_to 'Back', coffeeshops_path
+-#   %h4 Add a review
+-#   = form_for [@coffeeshop, @coffeeshop.reviews.build] do |f|
+-#     - if @coffeeshop.errors.any?
+-#     #error_explanation
+-#   %h2
+-#     = pluralize(@coffeeshop.errors.count, "error") prohibited this coffeeshop from being saved:
+-#     %ul
+-#     - @coffeeshop.errors.full_messages.each do |message|
+-#       %li= message
+-#       - if !current_user.nil?
+-#       = hidden_field_tag :user_id, current_user.id
+-#     .field
+-#       = f.label :rating
+-#       %br
+-#         = f.text_field :rating
+-#     .field
+-#       = f.label :body
+-#       %br
+-#         = f.text_area :body
+-#     .actions
+-#       = f.submit 
+
+-# -# = link_to 'Edit', edit_coffeeshop_path(@coffeeshop)
+-# |
+-# \#{link_to 'Back', coffeeshops_path}
