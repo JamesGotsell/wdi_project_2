@@ -7,6 +7,7 @@ gem 'refills', '0.1.0'
 gem 'haml-rails', '0.9.0'
 gem 'geocoder'
 gem 'ransack'
+gem 'cancancan', '~> 1.10'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
