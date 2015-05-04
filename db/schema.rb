@@ -11,10 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150504122658) do
+ActiveRecord::Schema.define(version: 20150504132540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "coffeeshops", force: :cascade do |t|
+    t.string   "name"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.text     "address"
+    t.text     "description"
+    t.text     "picture"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "coffeeshops", ["user_id"], name: "index_coffeeshops_on_user_id", using: :btree
+
+  create_table "coffeeshops_facilities", id: false, force: :cascade do |t|
+    t.integer "coffeeshop_id", null: false
+    t.integer "facility_id",   null: false
+  end
+
+  create_table "facilities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -25,6 +50,19 @@ ActiveRecord::Schema.define(version: 20150504122658) do
   end
 
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "rating"
+    t.integer  "user_id"
+    t.integer  "coffeeshop_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "reviews", ["coffeeshop_id"], name: "index_reviews_on_coffeeshop_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -46,5 +84,8 @@ ActiveRecord::Schema.define(version: 20150504122658) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "coffeeshops", "users"
   add_foreign_key "identities", "users"
+  add_foreign_key "reviews", "coffeeshops"
+  add_foreign_key "reviews", "users"
 end

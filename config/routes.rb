@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :facilities
   resources :coffeeshops
   # devise_for :users
   root 'users#index'
