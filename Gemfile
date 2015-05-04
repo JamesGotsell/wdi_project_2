@@ -1,5 +1,13 @@
 source 'https://rubygems.org'
 
+gem 'bourbon', '4.2.2'
+gem 'neat', '1.7.2'
+gem 'bitters', '1.0.0'
+gem 'refills', '0.1.0'
+gem 'haml-rails', '0.9.0'
+gem 'geocoder'
+gem 'ransack'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
