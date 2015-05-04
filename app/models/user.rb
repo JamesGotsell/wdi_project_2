@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 
    has_many :coffeeshops
    has_many :reviews
+   validates :name , presence: true
   
   TEMP_EMAIL_PREFIX = 'change@me'
 

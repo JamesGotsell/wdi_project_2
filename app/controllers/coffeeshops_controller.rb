@@ -10,6 +10,8 @@ class CoffeeshopsController < ApplicationController
   # GET /coffeeshops/1
   # GET /coffeeshops/1.json
   def show
+    @coffeeshop = Coffeeshop.find(params[:id])
+    @reviews = @coffeeshop.reviews
   end
 
   # GET /coffeeshops/new
@@ -24,7 +26,7 @@ class CoffeeshopsController < ApplicationController
   # POST /coffeeshops
   # POST /coffeeshops.json
   def create
-    @coffeeshop = Coffeeshop.new(coffeeshop_params)
+    @coffeeshop = current_user.coffeeshops.new(coffeeshop_params)
 
     respond_to do |format|
       if @coffeeshop.save
