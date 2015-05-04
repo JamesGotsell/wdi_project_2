@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+   has_many :coffeeshops
+   has_many :reviews
   
   TEMP_EMAIL_PREFIX = 'change@me'
 
