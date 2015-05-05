@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   mount_uploader :profile_pic, ProfilePictureUploader
 
+  before_create :set_default_role
 
   TEMP_EMAIL_PREFIX = 'change@me'
 
@@ -28,6 +29,11 @@ class User < ActiveRecord::Base
   end
   
   private
+
+  def set_default_role 
+    self.role ||= "user"
+  end
+
   def self.create_user(auth)
     # Get the existing user by email if the provider gives us a verified email.
     # If no verified email was provided we assign a temporary email and ask the
@@ -50,10 +56,8 @@ class User < ActiveRecord::Base
       # user.skip_confirmation!
       user.save!
     end 
-    user
+
+    user 
   end
-
-  
-
 
 end

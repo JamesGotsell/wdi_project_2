@@ -26,7 +26,7 @@
         %td= coffeeshop.user
 
         %td= link_to 'Show', coffeeshop
-        -if can? :update, :destroy, coffeeshop
+        -if can? :update, :destroy, Coffeeshop
           %td= link_to 'Edit', edit_coffeeshop_path(coffeeshop)
           %td= link_to 'Destroy', coffeeshop, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
