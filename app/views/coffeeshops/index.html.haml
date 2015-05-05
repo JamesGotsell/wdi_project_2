@@ -31,5 +31,5 @@
           %td= link_to 'Destroy', coffeeshop, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Coffeeshop', new_coffeeshop_path
+-if can? :create, Coffeeshop
+  = link_to 'New Coffeeshop', new_coffeeshop_path
