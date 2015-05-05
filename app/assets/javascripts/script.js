@@ -1,6 +1,9 @@
 var myMap = {}
+
 myMap.initialize = function(){
-var autoComplete = new google.maps.places.Autocomplete(document.getElementById("autocomplete"));
+  var $field = $('.autocomplete')[0];
+  var autoComplete = new google.maps.places.Autocomplete($field);
 }
 
 window.onload = myMap.initialize;
+
