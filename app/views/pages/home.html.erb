@@ -4,9 +4,9 @@
   </form>
 
   <h4>Pick the facilities you need</h4>
-  <p>1. Wifi 2. Power 3. Quiet </p>
+  <%#= @coffeeshop.facilities.map{|f| "##{f.name}"}.join(", ") %>
 <p>Submit</p>
- <p> Find by Geolocation</p>
+ <h4> Find by Geolocation</h4>
 
  <%= form_tag coffeeshops_path, :method => 'get' do %>
    <p>
