@@ -22,7 +22,7 @@
         <ul class="right">
           <% if user_signed_in? %>
           <% if current_user.profile_pic.present? %>
-          <li><%= image_tag(current_user.profile_pic) %></li> 
+          <li><%= image_tag(current_user.profile_pic.thumb.url) %></li> 
           <% end %>
           <li ><%= link_to "CoffeeShops", coffeeshops_path%></li>
           <li ><%= link_to " edit", edit_user_registration_path(current_user)%></li>
