@@ -20,6 +20,10 @@
   = image_tag @coffeeshop.picture.thumb.url 
 
 %p
+  %b Facilities:
+  = @coffeeshop.facilities.map{|f| "##{f.name}"}.join(", ")
+
+%p
   %b User:
   = @coffeeshop.user
 
