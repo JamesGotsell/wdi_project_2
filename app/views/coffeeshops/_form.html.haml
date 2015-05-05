@@ -27,5 +27,11 @@
   .field
     = f.label :user
     = f.text_field :user
+  .field
+    = f.label :facilities
+    - Facility.all.each do |f|
+      - is_checked = @coffeeshop.facility_ids.include? f.id
+      = check_box_tag "coffeeshop[facilities][]", f.id, is_checked
+      = f.name
   .actions
     = f.submit 'Save'
