@@ -12,13 +12,11 @@
   <% end %>
     <% if !current_user.nil? %>
       <%= hidden_field_tag :user_id, current_user.id %>
-    <% end %>
+    
   <div class='field'>
     <%= f.label :rating %><br>
     <%= f.text_field :rating %>
   </div>
-
-  
 
 
   <div class='field'>
@@ -29,5 +27,5 @@
   <div class='actions'>
   <%= f.submit %>
   </div>
-
+  <% end %>
 <% end %>  

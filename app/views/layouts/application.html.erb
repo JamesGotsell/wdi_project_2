@@ -20,11 +20,12 @@
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
+          <li ><%= link_to "CoffeeShops", coffeeshops_path%></li>
           <% if user_signed_in? %>
           <% if current_user.profile_pic.present? %>
           <li><%= image_tag(current_user.profile_pic.thumb.url) %></li> 
           <% end %>
-          <li ><%= link_to "CoffeeShops", coffeeshops_path%></li>
+          
           <li ><%= link_to " edit", edit_user_registration_path(current_user)%></li>
           <li><%= link_to current_user.name, current_user %></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li> 
