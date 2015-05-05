@@ -7,3 +7,10 @@
   <p>1. Wifi 2. Power 3. Quiet </p>
 <p>Submit</p>
  <p> Find by Geolocation</p>
+
+ <%= form_tag coffeeshops_path, :method => 'get' do %>
+   <p>
+     <%= text_field_tag :search, params[:search] %>
+     <%= submit_tag "Search", :name => nil %>
+   </p>
+ <% end %>

@@ -4,7 +4,11 @@ class CoffeeshopsController < ApplicationController
   # GET /coffeeshops
   # GET /coffeeshops.json
   def index
-    @coffeeshops = Coffeeshop.all
+    if params[:search].nil?
+      @coffeeshops = Coffeeshop.all
+    else
+      @coffeeshops = Coffeeshop.near(params[:search])
+    end
   end
 
   # GET /coffeeshops/1
