@@ -1,7 +1,22 @@
-%p
-  = review.user.email
-  said:
-%p
-  Rating: #{review.rating}
-%blockquote
-  = review.body 
+-# %p
+-#   = review.user
+-#   said:
+-# %p
+-#   Rating: #{review.rating}
+-# %blockquote
+-#   = review.body 
+
+
+- if review.user
+  
+  %p
+    = review.user
+    said:
+  %p
+    Rating: #{review.rating}
+  %blockquote
+    = review.body 
+- else
+  
+  %p no reviews yet
+

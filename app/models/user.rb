@@ -1,9 +1,12 @@
 class User < ActiveRecord::Base
 
-   has_many :coffeeshops
-   has_many :reviews
-   validates :name , presence: true
-  
+  has_many :coffeeshops
+  has_many :reviews
+  validates :name, presence: true
+
+  mount_uploader :profile_pic, ProfilePictureUploader
+
+
   TEMP_EMAIL_PREFIX = 'change@me'
 
   # Include default devise modules. Others available are:
@@ -23,7 +26,7 @@ class User < ActiveRecord::Base
       
     user
   end
-
+  
   private
   def self.create_user(auth)
     # Get the existing user by email if the provider gives us a verified email.
@@ -50,7 +53,7 @@ class User < ActiveRecord::Base
     user
   end
 
-  # mount_uploader :profile_pic, ProfileUploader
+  
 
 
 end
