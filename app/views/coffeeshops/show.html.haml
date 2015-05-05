@@ -17,14 +17,14 @@
   = @coffeeshop.description
 %p
   %b Picture:
-  = @coffeeshop.picture 
+  = image_tag @coffeeshop.picture 
 
 %p
   %b User:
   = @coffeeshop.user
 
 %h3 Reviews
-= render :partial => 'reviews/review'
--# = render @coffeeshop.reviews
+-# = render :partial => 'reviews/review'
+= render @coffeeshop.reviews
 = render :partial => 'reviews/form'
 
