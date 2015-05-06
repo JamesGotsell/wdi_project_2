@@ -1,5 +1,13 @@
 %h1 Listing coffeeshops
 
+.row
+  #map-container.col.md-6
+    #googleMap
+  #directions-container.col-md-6
+    #direction-panel
+
+
+
 %table
   %thead
     %tr
@@ -11,9 +19,7 @@
       %th Picture
       %th User
       %th Facility
-      %th
-      %th
-
+      
   %tbody
     - @coffeeshops.each do |coffeeshop|
       %tr
