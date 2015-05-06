@@ -1,9 +1,10 @@
 @import "bourbon";
 @import "neat";
+@import "map";
+@import "navbar";
 
 body {
-
-   background-color: #f0f0f0;
-   min-width: 960px;
-
+   max-width: 960px;
+   margin: 0 auto;
+   background-color: lighter(#fefefe, 10%)
 }

@@ -1,6 +1,5 @@
 #googleMap{
-  min-height:500px;
-  width: 50%;
+  height: 500px;
+  width: 500px;
   position: relative;
-  background-color: blue;
 }
