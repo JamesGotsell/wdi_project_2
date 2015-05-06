@@ -1,8 +1,18 @@
-nav {
+header {
 
+   nav {
+    width: 100%;
+    margin-top: 0;
     background-color: gray;
-      .title-area ul li  {
-       list-style: none;
-      }
+          h1{
+            color: red;
+          }
 
+        .title-area ul {
+          text-decoration: none;
+          
+          }
+
+  }
 }
+

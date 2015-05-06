@@ -16,14 +16,6 @@
       <ul class="title-area">
         <li class="home">
           <h1><a href="/">DudewheresmyCoffee</a></h1>
-        </li>
-        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-      </ul>
-
-      <section class="top-bar-section">
-        <!-- Right Nav Section -->
-        <ul class="right">
           <li ><%= link_to "CoffeeShops", coffeeshops_path%></li>
           <% if user_signed_in? %>
           <% if current_user.profile_pic.present? %>
@@ -39,10 +31,11 @@
           <li><%= link_to "Login", new_user_session_path %></li>
           <% end %>
         </ul>
-      </section>
-    </nav>
-  </header>
-<%= yield %>
-
+     
+     </nav>
+   </header>
+  <div class="main">
+  <%= yield %>
+  </div>
 </body>
 </html>
