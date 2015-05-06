@@ -1,44 +1,54 @@
-var myMap = {}
+// var myMap = {}
 
-function createMarkerForCoffeeshop(coffeeshop){
-   latLngObject = new google.LatLng(coffeeshop["latitude"], coffeeshop ["longitude"]);
+
+$(function(){
+
+var map; 
+
+function createMarkerForCoffeeShop(coffeeshop){
+  console.log(coffeeshop)
+  latLngObjectCoffeeShop = new google.maps.LatLng(coffeeshop.latitude, coffeeshop.longitude);
    var marker = new google.maps.Marker({
-     position: latLngObject
+     position: latLngObjectCoffeeShop,
+     map: map
    });
 }
 
-function mapCoffeeshop(){
+function mapCoffeeShops(coffeeshops){
+  $.each(coffeeshops, function(i, coffeeshop){
+      createMarkerForCoffeeShop(coffeeshop)
 
+    })
+  console.log("hello cheryl")
 }
 
-myMap.initialize = function(){
+function initialize(){
   var $field = $('.autocomplete')[0];
   var autoComplete = new google.maps.places.Autocomplete($field);
 
-  var latLngObject = new google.maps.LatLng(51.52, -0.115);
-
   var myOptions = { 
-    center: latLngObject, 
-    zoom:14, 
+    center: {lat:51.52 , lng: - 0.115 }, 
+    zoom:12, 
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
-
-var map = new google.maps.Map(document.getElementById("googleMap"),myOptions); 
+ 
+ map = new google.maps.Map(document.getElementById("googleMap"),myOptions); 
 
   $.ajax({
     method: "GET",
-    url: "/coffeeshop.json"
+    url: "/coffeeshops.json",
     // data: null,
-    datatype: "json"
+    dataType: "json",
+    // data: "json"
   }).done(function(data){
-   mapCoffeeShop(data)
-  });
-
-};
-
+   mapCoffeeShops(data);
+    });
+  }
 
 
+initialize();
+
+});
 
 
-window.onload = myMap.initialize;
 
