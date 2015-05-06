@@ -13,7 +13,7 @@ gem 'omniauth', '1.2.2'
 gem 'omniauth-facebook', '2.0.1'
 gem "carrierwave", "0.10.0"
 gem "rmagick"
-gem 'fog', '1.29.0'
+#gem 'fog', '1.29.0'
 gem 'high_voltage', '~> 2.3.0'
 
 gem 'simple_form'
