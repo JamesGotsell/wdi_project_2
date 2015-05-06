@@ -40,6 +40,7 @@ class CoffeeshopsController < ApplicationController
   # POST /coffeeshops.json
   def create
     @coffeeshop = current_user.coffeeshops.new(coffeeshop_params)
+    
     coffeeshop_facilities = params[:coffeeshop].delete(:facilities)
     @coffeeshop.facility_ids = coffeeshop_facilities
 
