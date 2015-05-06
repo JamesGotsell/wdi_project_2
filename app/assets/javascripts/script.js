@@ -53,12 +53,35 @@ myMap.createAutcomplete = function() {
   if ($('.autocomplete').length > 0) {
     var $field = $('.autocomplete')[0];
     var autoComplete = new google.maps.places.Autocomplete($field);
+    myMap.autocompleteCompleteFields(autoComplete);
   }
+}
+
+myMap.geolocation = function() {
+  navigator.geolocation.getCurrentPosition(function(position){
+    var $lat = $('.lat');
+    var $lng = $('.lng');
+    $lat.val(position.coords.latitude);
+    $lng.val(position.coords.longitude);
+  }, function(){
+    alert("something wrong")
+  });
+}
+
+myMap.autocompleteCompleteFields = function(autoComplete){
+  google.maps.event.addListener(autoComplete, 'place_changed', function() {
+    var thisplace = autoComplete.getPlace();
+    var $lat = $('.lat');
+    var $lng = $('.lng');
+    $lat.val(thisplace.geometry.location.j);
+    $lng.val(thisplace.geometry.location.C);
+  });
 }
 
 myMap.initialize = function(){
   myMap.displayMap();
   myMap.createAutcomplete();
+  myMap.geolocation();
 }
 
 $(function(){
