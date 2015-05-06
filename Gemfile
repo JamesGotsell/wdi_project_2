@@ -16,6 +16,7 @@ gem "rmagick"
 gem 'fog', '1.29.0'
 gem 'high_voltage', '~> 2.3.0'
 
+gem 'simple_form'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'

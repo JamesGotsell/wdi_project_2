@@ -1,6 +1,7 @@
 <h3>Find by Address</h3>
   <form role="search" id="places_form">
     <input type="text" class="autocomplete" class="form-control " placeholder="Search">
+    <%= submit_tag "Search", :name => nil %>
   </form>
 
   <h4>Pick the facilities you need</h4>
@@ -8,9 +9,18 @@
 <p>Submit</p>
  <h4> Find by Geolocation</h4>
 
- <%= form_tag coffeeshops_path, :method => 'get' do %>
+ <%= form_tag coffeeshops_path, :role => 'search', :id => 'places_form', :method => 'get' do%>
    <p>
-     <%= text_field_tag :search, params[:search] %>
+     <%= text_field_tag :search, params[:search], :class => "autocomplete" %>
      <%= submit_tag "Search", :name => nil %>
    </p>
+ <% end %>
+
+ <h4> trying stuff desperately</h4>
+
+ <%= form_tag coffeeshops_path, :role => 'search', :id => 'places_form', :method => 'get' do%>
+ <p>
+ <input type="text" class="autocomplete" class="form-control" placeholder="Search">
+  <%= submit_tag "Search", :name => nil %>
+ </p>
  <% end %>
