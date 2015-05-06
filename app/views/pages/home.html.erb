@@ -1,40 +1,27 @@
-
-  <form role="search" id="places_form">
-    <input type="text" class="autocomplete" class="form-control " placeholder="Search">
-  </form>
-
-<<<<<<< HEAD
+<%= form_tag coffeeshops_path, :method => 'get', id: "search-form" do %>
+<h3>Find by Address</h3>
+  <p>
+    <%= text_field_tag :search, nil, class: "autocomplete" %>
+    <%= text_field_tag 'lat', nil, class: "lat" %>
+    <%= text_field_tag 'lng', nil, class: "lng" %>
+  </p>
   <h4>Pick the facilities you need</h4>
-  <%#= @coffeeshop.facilities.map{|f| "##{f.name}"}.join(", ") %>
-<p>Submit</p>
- <h4> Find by Geolocation</h4>
-=======
->>>>>>> cheryl
+  <p>
+    <%= check_box_tag "facilities[]", "wifi" %>
+    <%= label_tag "Wifi", "Wifi" %>
+  </p>
+  <p>
+    <%= check_box_tag "facilities[]", "power" %>
+    <%= label_tag "Power", "Power" %>
+  </p>
+  <p>
+    <%= check_box_tag "facilities[]", "quiet" %>
+    <%= label_tag "Quiet", "Quiet" %>
+  </p>
 
- <%= form_tag coffeeshops_path, :method => 'get', id: "search-form" do %>
-   <h3>Find by Address</h3>
-   <p>
-     <%= text_field_tag :search, params[:search] %>
-     </p>
-     <h4>Pick the facilities you need</h4>
-     <%= check_box_tag "facilities_picked[]", "wifi" %>
-     <%= label_tag "Wifi", "Wifi" %>
-     </p>
-     <p>
-     <%= check_box_tag "facilities_picked[]", "power" %>
-     <%= label_tag "Power", "Power" %>
-     </p>
-     <p>
-     <%= check_box_tag "facilities_picked[]", "quiet" %>
-     <%= label_tag "Quiet", "Quiet" %>
-     </p>
-
-     <%= hidden_field_tag 'lat', value='' %>
-     <%= hidden_field_tag 'long', value='' %>
-     <%= submit_tag "Find Coffeeshops" %>
-     <%= submit_tag "Use Geolocation" ,:id=> "some_id" %>
-   </p>
- <% end %>
+  <%= submit_tag "Find Coffeeshops" %>
+  <%= submit_tag "Use Geolocation" %>
+<% end %>
 
 
 
