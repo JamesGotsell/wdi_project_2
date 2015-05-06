@@ -1,9 +1,16 @@
-var myMap = {}
 
-myMap.initialize = function(){
-  var $field = $('.autocomplete')[0];
-  var autoComplete = new google.maps.places.Autocomplete($field);
+function getUserLocation(){ 
+    navigator.geolocation.getCurrentPosition(changeHiddenTagValues);
 }
 
-window.onload = myMap.initialize;
+ function changeHiddenTagValues(position) {
+  console.log(position)
+  document.getElementById('lat').value = position.coords.latitude;
+  document.getElementById('long').value = position.coords.longitude;
 
+}
+
+
+
+  
+ 

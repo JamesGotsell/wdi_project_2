@@ -4,10 +4,19 @@ class CoffeeshopsController < ApplicationController
   # GET /coffeeshops
   # GET /coffeeshops.json
   def index
+    @coffeeshops = Coffeeshop.all
+    #only return an array of coffeeshops with the facilities specified in form
+    facilities_picked = params[:facilities_picked]
+    if !facilities_picked.nil?
+      facilities_picked.each do |facility_picked|
+      @coffeeshops = Coffeeshop.joins(:facilities).where(   facilities: { name: facility_picked })
+      end
+    end
+
     if params[:search].nil?
-      @coffeeshops = Coffeeshop.all
+    @coffeeshops
     else
-      @coffeeshops = Coffeeshop.near(params[:search])
+      @coffeeshops = @coffeeshops.near(params[:search])
     end
   end
 
