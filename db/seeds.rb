@@ -9,3 +9,5 @@ f3 = Facility.create!(name:'wifi')
 
 
 c1 = Coffeeshop.create!(name: 'canvas', latitude: '', longitude:'', address:'brick lane 132', description: 'asdfghjkl', picture: '', user_id: '1', facilities: Facility.where(name: 'quiet'))
+
+c2 = Coffeeshop.create!(name: 'coolio cafe', latitude: '', longitude:'', address:'12 joo chiat road', description: 'asdfghjkl', picture: '', user_id: '1', facilities: Facility.where(name: 'wifi'))
