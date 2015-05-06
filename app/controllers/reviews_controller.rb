@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+
   def create
     @coffeeshop = Coffeeshop.find(params[:coffeeshop_id])
     @review = current_user
@@ -13,6 +14,8 @@ class ReviewsController < ApplicationController
         notice: 'Error creating review!'
     end
   end
+
+
 
   private
 

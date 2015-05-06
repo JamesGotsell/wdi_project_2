@@ -31,7 +31,7 @@
         %td= coffeeshop.address
         %td= coffeeshop.description
         %td= coffeeshop.picture
-        %td= coffeeshop.user
+        %td= coffeeshop.user.name
         %td= coffeeshop.facilities.map{|f| "##{f.name}"}.join(", ")
 
         %td= link_to 'Show', coffeeshop

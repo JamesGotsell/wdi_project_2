@@ -1,22 +1,12 @@
 %p
-  = review.user.email
-  said:
-%p
-  Rating: #{review.rating}
-%blockquote
-  = review.body 
+  - if @reviews.length > 0
+    - @reviews.each do |r|
+      = r.user.name
+      = r.user.body
+      = r.user.rating
+  - else
+    This coffee doesn't have any reviews yet!
 
 
--# - if review.user
-  
--#   %p
--#     = review.user
--#     said:
--#   %p
--#     Rating: #{review.rating}
--#   %blockquote
--#     = review.body 
--# - else
-  
--#   %p no reviews yet
+
 

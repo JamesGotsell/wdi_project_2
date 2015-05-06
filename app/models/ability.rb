@@ -5,8 +5,6 @@ class Ability
     if user.role == "admin"
       can :manage, :all 
       can :destroy, Review
-      can :create, Facility
-      can :destroy, Facility
     elsif user.role == "user"
       can :read, :all 
       can :create, Review, user_id: user.id
