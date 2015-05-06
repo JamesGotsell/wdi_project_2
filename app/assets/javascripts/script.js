@@ -1,7 +1,10 @@
 var myMap = {}
 
-function createMarkerForCoffeeshop(){
-  
+function createMarkerForCoffeeshop(coffeeshop){
+   latLngObject = new google.LatLng(coffeeshop["latitude"], coffeeshop ["longitude"]);
+   var marker = new google.maps.Marker({
+     position: latLngObject
+   });
 }
 
 function mapCoffeeshop(){
@@ -25,8 +28,8 @@ var map = new google.maps.Map(document.getElementById("googleMap"),myOptions);
   $.ajax({
     method: "GET",
     url: "/coffeeshop.json"
-    data: null,
-    datatype: "json",
+    // data: null,
+    datatype: "json"
   }).done(function(data){
    mapCoffeeShop(data)
   });
