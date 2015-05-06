@@ -1,54 +1,66 @@
-// var myMap = {}
+// DISPLAY MARKERS ON MAP
+// Display Google Map (on index page)
+// Get data from database using Ajax
+// Loop over data to plot markers onto map
 
+// CREATE AUTOCOMPLETE
+// Use Google to create autocomplete field
 
-$(function(){
+var myMap = myMap || {};
 
-var map; 
-
-function createMarkerForCoffeeShop(coffeeshop){
-  console.log(coffeeshop)
-  latLngObjectCoffeeShop = new google.maps.LatLng(coffeeshop.latitude, coffeeshop.longitude);
-   var marker = new google.maps.Marker({
-     position: latLngObjectCoffeeShop,
-     map: map
-   });
+myMap.createMarker = function(item){
+  latLng = new google.maps.LatLng(item.latitude, item.longitude);
+  var marker = new google.maps.Marker({
+    position: latLng,
+    map: this.map
+  });
 }
 
-function mapCoffeeShops(coffeeshops){
-  $.each(coffeeshops, function(i, coffeeshop){
-      createMarkerForCoffeeShop(coffeeshop)
-
-    })
-  console.log("hello cheryl")
+myMap.createMarkers = function(items){
+  $.each(items, function(i, item){
+    myMap.createMarker(item)
+  });
 }
 
-function initialize(){
-  var $field = $('.autocomplete')[0];
-  var autoComplete = new google.maps.places.Autocomplete($field);
-
-  var myOptions = { 
-    center: {lat:51.52 , lng: - 0.115 }, 
-    zoom:12, 
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
- 
- map = new google.maps.Map(document.getElementById("googleMap"),myOptions); 
-
+myMap.getData = function(resource){
   $.ajax({
     method: "GET",
-    url: "/coffeeshops.json",
-    // data: null,
-    dataType: "json",
-    // data: "json"
+    url: "/" + resource + ".json",
+    dataType: "json"
   }).done(function(data){
-   mapCoffeeShops(data);
-    });
+    myMap.createMarkers(data);
+  });
+}
+
+myMap.displayMap = function() {
+  if ($('#googleMap').length > 0) {
+    var mapContainer = document.getElementById('googleMap');
+    var lat = 51.52;
+    var lng = -0.115;
+
+    var myOptions = { 
+      center: { lat:lat, lng:lng }, 
+      zoom: 12, 
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    this.map = new google.maps.Map(mapContainer, myOptions);
+    this.getData("coffeeshops");
   }
+}
 
+myMap.createAutcomplete = function() {
+  if ($('.autocomplete').length > 0) {
+    var $field = $('.autocomplete')[0];
+    var autoComplete = new google.maps.places.Autocomplete($field);
+  }
+}
 
-initialize();
+myMap.initialize = function(){
+  myMap.displayMap();
+  myMap.createAutcomplete();
+}
 
+$(function(){
+  myMap.initialize();
 });
-
-
-
