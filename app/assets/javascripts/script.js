@@ -59,8 +59,8 @@ myMap.createAutcomplete = function() {
 
 myMap.geolocation = function() {
   navigator.geolocation.getCurrentPosition(function(position){
-    var $lat = $('.lat');
-    var $lng = $('.lng');
+    var $lat = $('#lat');
+    var $lng = $('#lng');
     $lat.val(position.coords.latitude);
     $lng.val(position.coords.longitude);
   }, function(){
@@ -71,8 +71,8 @@ myMap.geolocation = function() {
 myMap.autocompleteCompleteFields = function(autoComplete){
   google.maps.event.addListener(autoComplete, 'place_changed', function() {
     var thisplace = autoComplete.getPlace();
-    var $lat = $('.lat');
-    var $lng = $('.lng');
+    var $lat = $('#lat');
+    var $lng = $('#lng');
     $lat.val(thisplace.geometry.location.j);
     $lng.val(thisplace.geometry.location.C);
   });
