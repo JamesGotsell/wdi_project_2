@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <%= @user.name %></strong>
+</p>
+
+<div class="profile_pic">
+  <%= image_tag @user.profile_pic %>
+</div>
+
+
+<p>
+  <strong>Coffeshops faved by <%= @user.name %>: </strong>
+  <nav>
+    <% @user.coffeeshops.each do |c| %>
+    <li><%= link_to "#{c.name}", c %> 
+      <br>
+      <%= link_to image_tag("#{c.picture}"), c %>
+    </li>
+    <% end %>
+  </nav>
+</p>
+
+<%= link_to 'Back', users_path%>
