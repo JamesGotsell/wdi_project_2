@@ -14,25 +14,17 @@ var infowindow;
 
 myMap.createInfoWindow = function(marker, item){
   google.maps.event.addListener(marker, 'click', function(){
-  
+
     if(infowindow != undefined){
       infowindow.close();
     }
-
+    
     infowindow = new google.maps.InfoWindow({
       content: "<p>Place: </p>" + item.name + "<p>Address: </p>"+ item.address 
     });
-
-
     infowindow.open(myMap, this)
   });
-
-
 }
-
-
-
-
 myMap.createMarker = function(item){
   latLng = new google.maps.LatLng(item.latitude, item.longitude);
   var marker = new google.maps.Marker({
@@ -130,16 +122,16 @@ myMap.initialize = function(){
     var delay = 1000;
     window.clearTimeout(timer);
     timer = window.setTimeout(function(){
-        $("#submit_address").removeAttr('disabled', 'disabled');
+      $("#submit_address").removeAttr('disabled', 'disabled');
     }, delay);
-  
+
   });
 }
 
 myMap.addInfoWindow = function(marker, item){
   google.maps.event.addListener(marker, 'click', function() {
 
-    
+
     //add a function here to center on area
     console.log(marker.getPosition());
     this.map.panTo(marker.getPosition());
@@ -150,12 +142,12 @@ myMap.addInfoWindow = function(marker, item){
     } 
 
     infoWindow = new google.maps.InfoWindow({
-              content: contentString
-          });
-
-      infoWindow.open(this.map,this);
-  
+      content: contentString
     });
+
+    infoWindow.open(this.map,this);
+
+  });
 }
 
 
