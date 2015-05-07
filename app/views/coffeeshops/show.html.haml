@@ -4,9 +4,6 @@
   %b Average Rating:
   = @coffeeshop.calculateAverage
 %p
-  %b Average Rating:
-  = @coffeeshop.calculateAverage
-%p
   %b Name:
   = @coffeeshop.name
 %p
@@ -22,7 +19,6 @@
 %p
   %b Facilities:
   = @coffeeshop.facilities.map{|f| "#{f.name}"}.join(", ")
-
 %p
   %b User:
   = @coffeeshop.user.name
@@ -31,7 +27,6 @@
 %h3 Reviews
 
 = render :partial => 'reviews/review'
-
 -#= render @coffeeshop.reviews
 = render :partial => 'reviews/form'
 
