@@ -5,42 +5,24 @@
 
 // CREATE AUTOCOMPLETE
 // Use Google to create autocomplete field
-// Create iinfowindow populating with our data
 
 var myMap = myMap || {};
-
-
 var infoWindow, contentString;
-myMap.createInfoWindow = function(marker, item){
-  google.maps.event.addListener(marker, 'click', function(){
 
-    if(infowindow != undefined){
-      infowindow.close();
-    }
-    
-    infowindow = new google.maps.InfoWindow({
-      content: "<p>Place: </p>" + item.name + "<p>Address: </p>"+ item.address 
-    });
-    infowindow.open(myMap, this)
-  });
-}
 myMap.createMarker = function(item){
   latLng = new google.maps.LatLng(item.latitude, item.longitude);
   var marker = new google.maps.Marker({
     position: latLng,
     map: this.map
   });
-
   myMap.addInfoWindow(marker, item);
   marker.setMap(this.map);
-
 }
 
 myMap.createMarkers = function(items){
   $.each(items, function(i, item){
     myMap.createMarker(item)
   });
-
 }
 
 myMap.getData = function(resource){
@@ -121,16 +103,16 @@ myMap.initialize = function(){
     var delay = 1000;
     window.clearTimeout(timer);
     timer = window.setTimeout(function(){
-      $("#submit_address").removeAttr('disabled', 'disabled');
+        $("#submit_address").removeAttr('disabled', 'disabled');
     }, delay);
-
+  
   });
 }
 
 myMap.addInfoWindow = function(marker, item){
   google.maps.event.addListener(marker, 'click', function() {
 
-
+    
     //add a function here to center on area
     console.log(marker.getPosition());
     this.map.panTo(marker.getPosition());
@@ -141,12 +123,12 @@ myMap.addInfoWindow = function(marker, item){
     } 
 
     infoWindow = new google.maps.InfoWindow({
-      content: contentString
+              content: contentString
+          });
+
+      infoWindow.open(this.map,this);
+  
     });
-
-    infoWindow.open(this.map,this);
-
-  });
 }
 
 
