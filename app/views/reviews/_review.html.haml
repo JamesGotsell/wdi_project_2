@@ -2,8 +2,8 @@
   - if @reviews.length > 0
     - @reviews.each do |r|
       = r.user.name
-      = r.user.body
-      = r.user.rating
+      = r.body
+      = r.rating
   - else
     This coffeeshop doesn't have any reviews yet!
 

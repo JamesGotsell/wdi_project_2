@@ -6,8 +6,10 @@
   = link_to 'New Coffeeshop', new_coffeeshop_path
 
 %ul
-  = @lat
-  = @lng
+
+  %li#userLat= @lat
+  %li#userLng= @lng
+
 
 .row
   #map-container.col.md-6

@@ -13,15 +13,17 @@ class CoffeeshopsController < ApplicationController
     @lat       = params[:lat]
     @lng       = params[:lng]
 
-    # Get actual address from address
+     # Get actual address from address
 
     if facilities.present?
       facilities.each do |facility|
         @coffeeshops = Coffeeshop.joins(:facilities).where(facilities: { name: facility })
       end
     end
-
-    @coffeeshops = @coffeeshops.near(params[:search]) if address.present?
+  
+    @coffeeshops = Coffeeshop.near([@lat, @lng]) if @lat.present? && @lng.present?  
+    
+    #@coffeeshops = @coffeeshops.near(params[:search]) if address.present?
   end
 
   # GET /coffeeshops/1
