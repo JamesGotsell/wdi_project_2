@@ -9,7 +9,7 @@
   <%= javascript_include_tag 'application' %>
 </head>
 <body>
-<header class="navigation" role="banner">
+<!-- <header class="navigation" role="banner">
   <div class="navigation-wrapper">
     <a href="javascript:void(0)" class="logo">
       <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo Image">
@@ -20,29 +20,67 @@
     <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
-        <li class="nav-link"><%= link_to " Home", root_path %></li>
-        <li class="nav-link"><%= link_to "Coffeeshops", coffeeshops_path %></li>
+        <li class="nav-link"><%#= link_to " Home", root_path %></li>
+        <li class="nav-link"><%#= link_to "Coffeeshops", coffeeshops_path %></li>
         
-        <% if user_signed_in? %>
-        <% if current_user.profile_pic.present? %>
-        <li class="nav-link"><%= image_tag current_user.profile_pic.thumb.url %></li>
-        <% end %>
-        <li class="nav-link"><%= link_to "Edit", edit_user_registration_path(current_user)%></li>
-        <li class="nav-link"><%= link_to current_user.name, current_user %></li>
-        <li class="nav-link"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li> 
-        <% else %>
-        <li class="nav-link"><%= link_to "Register", new_user_registration_path %></li>
-        <li class="nav-link"><%= link_to "Login", new_user_session_path %></li>
-        <% end %>
+        <%# if user_signed_in? %>
+        <%# if current_user.profile_pic.present? %>
+        <li class="nav-link"><%#= image_tag current_user.profile_pic.thumb.url %></li>
+        <%# end %>
+        <li class="nav-link"><%#= link_to "Edit", edit_user_registration_path(current_user)%></li>
+        <li class="nav-link"><%#= link_to current_user.name, current_user %></li>
+        <li class="nav-link"><%#= link_to "Logout", destroy_user_session_path, method: :delete %></li> 
+        <%# else %>
+        <li class="nav-link"><%#= link_to "Register", new_user_registration_path %></li>
+        <li class="nav-link"><%#= link_to "Login", new_user_session_path %></li>
+        <%# end %>
       </ul>
 
     </nav>
    
-  </div>
+  </div> -->
+    <header class="centered-navigation" role="banner">
+      <div class="centered-navigation-wrapper">
+        <a href="javascript:void(0)" class="mobile-logo">
+          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="Logo image">
+        </a>
+        <a href="javascript:void(0)" id="js-centered-navigation-mobile-menu" class="centered-navigation-mobile-menu">MENU</a>
+        <nav role="navigation">
+          <ul id="js-centered-navigation-menu" class="centered-navigation-menu show">
+            <li class="nav-link"><a href="javascript:void(0)">Products</a></li>
+            <li class="nav-link"><a href="javascript:void(0)">About Us</a></li>
+            <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
+            <li class="nav-link logo">
+              <a href="javascript:void(0)" class="logo">
+                <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="Logo image">
+              </a>
+            </li>
+            <li class="nav-link"><a href="javascript:void(0)">Testimonials</a></li>
+            <li class="nav-link more"><a href="javascript:void(0)">More</a>
+              <ul class="submenu">
+                <li><a href="javascript:void(0)">Submenu Item</a></li>
+                <li><a href="javascript:void(0)">Another Item</a></li>
+                <li class="more"><a href="javascript:void(0)">Item with submenu</a>
+                  <ul class="submenu">
+                    <li><a href="javascript:void(0)">Sub-submenu Item</a></li>
+                    <li><a href="javascript:void(0)">Another Item</a></li>
+                  </ul>
+                </li>
+                <li class="more"><a href="javascript:void(0)">Another submenu</a>
+                  <ul class="submenu">
+                    <li><a href="javascript:void(0)">Sub-submenu</a></li>
+                    <li><a href="javascript:void(0)">An Item</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-link"><a href="javascript:void(0)">Sign up</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
 
-     
-     </nav>
    </header>
   <div class="main">
   <%= yield %>
