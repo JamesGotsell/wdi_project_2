@@ -83,8 +83,10 @@ myMap.autocompleteCompleteFields = function(autoComplete){
     var thisplace = autoComplete.getPlace();
     var $lat = $('#lat');
     var $lng = $('#lng');
+
     $lat.val(thisplace.geometry.location.A);
     $lng.val(thisplace.geometry.location.F);
+
   });
   
 }
