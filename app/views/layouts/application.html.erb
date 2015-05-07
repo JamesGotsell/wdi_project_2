@@ -9,6 +9,7 @@
   <%= javascript_include_tag 'application' %>
 </head>
 <body>
+  <div class="wrapper-for-content-outside-of-footer">
     <header class="centered-navigation" role="banner">
       <div class="centered-navigation-wrapper">
         <a href="javascript:void(0)" class="mobile-logo">
@@ -24,7 +25,7 @@
             </li>
             <%if user_signed_in? %>
             <%if current_user.profile_pic.present? %>
-            <li class="nav-link"><%= image_tag current_user.profile_pic.thumb.url %></li>
+              <li class="nav-link"><%= image_tag current_user.profile_pic.thumb.url %></li>
             <%end %>
             
             <li class="nav-link"><%= link_to "Edit", edit_user_registration_path(current_user)%></li>
@@ -41,37 +42,36 @@
       </div>
     </header>
 
+    <div class="main">
+      <%= yield %>
+    </div>
 
-   
-  <div class="main">
-  <%= yield %>
   </div>
-
   <footer class="footer-2" role="contentinfo">
     <div class="footer-logo">
       <!-- <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image"> -->
       <%= image_tag "coffeeshop_logo.png" %>
     </div>
+    <ul>
+      <li><%= link_to " Home", root_path %></li>
+      <li><%= link_to "Coffeeshops", coffeeshops_path %></li>
+    </ul>
+
+    <div class="footer-secondary-links">
       <ul>
-        <li><%= link_to " Home", root_path %></li>
-        <li><%= link_to "Coffeeshops", coffeeshops_path %></li>
+        <li><a href="javascript:void(0)">Terms and Conditions</a></li>
+        <li><a href="javascript:void(0)">Privacy Policy</a></li>
       </ul>
 
-      <div class="footer-secondary-links">
-        <ul>
-          <li><a href="javascript:void(0)">Terms and Conditions</a></li>
-          <li><a href="javascript:void(0)">Privacy Policy</a></li>
-        </ul>
-
-        <ul class="footer-social">
-          <li><a href="javascript:void(0)">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/facebook-logo-circle.png" alt="Facebook">
-            </a></li>
-          <li><a href="javascript:void(0)">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/twitter-logo-circle.png" alt="Twitter">
+      <ul class="footer-social">
+        <li><a href="javascript:void(0)">
+          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/facebook-logo-circle.png" alt="Facebook">
           </a></li>
-        </ul>
-      </div>
+        <li><a href="javascript:void(0)">
+          <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/twitter-logo-circle.png" alt="Twitter">
+        </a></li>
+      </ul>
+    </div>
   </footer>
 </body>
 </html>
