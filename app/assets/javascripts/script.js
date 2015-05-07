@@ -125,14 +125,11 @@ myMap.addInfoWindow = function(marker, item){
     infoWindow = new google.maps.InfoWindow({
               content: contentString
           });
-
       infoWindow.open(this.map,this);
-  
     });
 }
 
 
 $(function(){
   myMap.initialize();
-
 });  
