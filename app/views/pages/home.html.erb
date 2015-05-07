@@ -3,8 +3,8 @@
 <h3>Find by Address</h3>
   <p>
     <%= text_field_tag :search, nil, class: "autocomplete" %>
-    <%= text_field_tag 'lat', nil, class: "lat" %>
-    <%= text_field_tag 'lng', nil, class: "lng" %>
+    <%= text_field_tag 'lat', nil, id: "lat" %>
+    <%= text_field_tag 'lng', nil, id: "lng" %>
   </p>
   <h4>Pick the facilities you need</h4>
   <p>
@@ -20,8 +20,8 @@
     <%= label_tag "Quiet", "Quiet" %>
   </p>
 
-  <%= submit_tag "Find Coffeeshops" %>
-  <%= submit_tag "Use Geolocation" %>
+  <%= submit_tag "Find Coffeeshops" , id: "submit_address"%>
+  <%= button_tag "Use Geolocation", id: "geolocation" %>
 <% end %>
 </div>
 

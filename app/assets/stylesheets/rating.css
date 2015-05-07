@@ -1,0 +1,7 @@
+.rating-input{
+  margin-left: 15px;
+  margin-right: -2px
+}
+.rating-input:first-of-type{
+  margin-left: 0px
+}
