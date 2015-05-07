@@ -8,10 +8,9 @@
 // Create iinfowindow populating with our data
 
 var myMap = myMap || {};
+
+
 var infoWindow, contentString;
-
-var infowindow;
-
 myMap.createInfoWindow = function(marker, item){
   google.maps.event.addListener(marker, 'click', function(){
 

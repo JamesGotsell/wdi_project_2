@@ -11,5 +11,8 @@ class Coffeeshop < ActiveRecord::Base
   
   mount_uploader :picture, CoffeePictureUploader
 
+  def average_rating
+      reviews.pluck(:rating).inject(:+).to_f / reviews.length
+  end
 
 end

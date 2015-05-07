@@ -1,10 +1,9 @@
-%p
-  - @recipes.each do |recipe|
-    Avg Rating 
-    = @coffeeshop.reviews.ratings.average(:ratings)
-
 
 %p#notice= notice
+
+%p
+  %b Rating:
+  = @coffeeshop.average_rating
 
 %p
   %b Name:
