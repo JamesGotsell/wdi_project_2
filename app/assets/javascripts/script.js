@@ -132,7 +132,6 @@ myMap.addInfoWindow = function(marker, item){
 }
 
 
-
 $(function(){
   myMap.initialize();
 
