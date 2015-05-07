@@ -23,7 +23,7 @@
                 = image_tag "coffeeshop_logo.png"
               - if user_signed_in?
                 - if current_user.profile_pic.present?
-                  %li.nav-link= image_tag current_user.profile_pic.thumb.url
+                  %li{:class =>"nav-link" , :id => "user_profile"}= image_tag current_user.profile_pic.thumb.url 
                 %li.nav-link= link_to "Edit", edit_user_registration_path(current_user)
                 %li.nav-link= link_to current_user.name, current_user
                 %li.nav-link= link_to "Logout", destroy_user_session_path, method: :delete

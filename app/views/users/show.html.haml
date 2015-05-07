@@ -2,15 +2,14 @@
 %p
   %h1
     = @user.name
-.profile_pic
-  = image_tag @user.profile_pic.thumb.url
+    = image_tag @user.profile_pic, :class => "profpic"
 %p
   %strong
     Coffeshops faved by #{@user.name}:
   
   %ul.tags
     - @user.coffeeshops.each do |c|
-      %li
+      %li.coffeepic
         = link_to "#{c.name}", c
         %br/
         = link_to image_tag("#{c.picture}"), c
