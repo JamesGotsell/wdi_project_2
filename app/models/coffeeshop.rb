@@ -1,4 +1,5 @@
 class Coffeeshop < ActiveRecord::Base
+
  belongs_to :user
  has_many :reviews
  has_and_belongs_to_many :facilities
@@ -12,11 +13,11 @@ class Coffeeshop < ActiveRecord::Base
  mount_uploader :picture, CoffeePictureUploader
  
  def calculateAverage
-    total = 1
-    if self.reviews.length != 0
-      total = self.reviews.length
-    end
-    self.reviews.inject(0){|sum , review | sum + review.rating.to_f }  /  total
-  end 
+   total = 1
+   if self.reviews.length != 0
+     total = self.reviews.length
+   end
+   self.reviews.inject(0){|sum , review | sum + review.rating.to_f }  /  total
+ end
 
 end

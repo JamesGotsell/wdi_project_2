@@ -5,6 +5,7 @@ class CoffeeshopsController < ApplicationController
   # GET /coffeeshops.json
   def index
     @coffeeshops = Coffeeshop.all
+    @all_coffeeshops = @coffeeshops
 
     #@avgrating = Coffeeshop.average_rating
 
@@ -13,22 +14,21 @@ class CoffeeshopsController < ApplicationController
     @lat       = params[:lat]
     @lng       = params[:lng]
 
-     # Get actual address from address
+    # Get actual address from address
+
 
     if facilities.present?
       facilities.each do |facility|
-        @coffeeshops = Coffeeshop.joins(:facilities).where(facilities: { name: facility })
+        @coffeeshops = @coffeeshops & Coffeeshop.joins(:facilities).where(facilities: { name: facility })
       end
+  
     end
   
     @coffeeshops = Coffeeshop.near([@lat, @lng]) if @lat.present? && @lng.present?  
     
-    #@coffeeshops = @coffeeshops.near(params[:search]) if address.present?
-  end
+    end
 
-  # GET /coffeeshops/1
-  # GET /coffeeshops/1.json
-  def show
+   def show
     @coffeeshop = Coffeeshop.find(params[:id])
     @reviews = @coffeeshop.reviews
   end
