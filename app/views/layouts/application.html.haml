@@ -1,0 +1,54 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title CoffeeShopApp
+    = stylesheet_link_tag    'application', media: 'all'
+    = csrf_meta_tags
+    %script{:src => "https://maps.googleapis.com/maps/api/js?key=AIzaSyCmvVIlUDE2iTItPXbJEkIBAHe-fU_KBAc&sensor=false&libraries=places"}
+    = javascript_include_tag 'application'
+    %link{:href => "http://fonts.googleapis.com/css?family=Bevan", :rel => "stylesheet", :type => "text/css"}/
+  %body
+    .wrapper-for-content-outside-of-footer
+      %header.centered-navigation{:role => "banner"}
+        .centered-navigation-wrapper
+          %a.mobile-logo{:href => "javascript:void(0)"}
+            = image_tag "coffeeshop_logo.png"
+          %a#js-centered-navigation-mobile-menu.centered-navigation-mobile-menu{:href => "javascript:void(0)"} MENU
+          %nav{:role => "navigation"}
+            %ul#js-centered-navigation-menu.centered-navigation-menu.show
+              %li.nav-link= link_to " Home", root_path
+              %li.nav-link= link_to "Coffeeshops", coffeeshops_path
+              %li.nav-link.logo
+                = image_tag "coffeeshop_logo.png"
+              - if user_signed_in?
+                - if current_user.profile_pic.present?
+                  %li.nav-link= image_tag current_user.profile_pic.thumb.url
+                %li.nav-link= link_to "Edit", edit_user_registration_path(current_user)
+                %li.nav-link= link_to current_user.name, current_user
+                %li.nav-link= link_to "Logout", destroy_user_session_path, method: :delete
+              - else
+                %li.nav-link= link_to "Register", new_user_registration_path
+                %li.nav-link= link_to "Login", new_user_session_path
+      .main
+        = yield
+    %footer.footer-2{:role => "contentinfo"}
+      .footer-logo
+        / <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_1.png" alt="Logo image">
+        = image_tag "coffeeshop_logo.png"
+      %ul
+        %li= link_to " Home", root_path
+        %li= link_to "Coffeeshops", coffeeshops_path
+      .footer-secondary-links
+        %ul
+          %li
+            %a{:href => "javascript:void(0)"} Terms and Conditions
+          %li
+            %a{:href => "javascript:void(0)"} Privacy Policy
+        %ul.footer-social
+          %li
+            %a{:href => "javascript:void(0)"}
+              %img{:alt => "Facebook", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/facebook-logo-circle.png"}/
+          %li
+            %a{:href => "javascript:void(0)"}
+              %img{:alt => "Twitter", :src => "https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/twitter-logo-circle.png"}/

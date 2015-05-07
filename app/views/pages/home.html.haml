@@ -1,0 +1,28 @@
+#landing_page_wrapper
+  = form_tag coffeeshops_path, :method => 'get', id: "search-form" do
+    %div
+      = image_tag "logo.png", id: "logo"
+    %div#addresssrch
+      %h3 Find your next favourite coffee shop by address:
+      %p
+        = text_field_tag :search, nil, class: "autocomplete"
+        = text_field_tag 'lat', nil, id: "lat" #hidden
+        = text_field_tag 'lng', nil, id: "lng" #hidden
+    %div#tagssrch
+      %h4 ...Or pick it depending from what you need: 
+      %ul.tags
+        %li
+          = label_tag "free wifi", "Wifi"
+        %li
+          = check_box_tag "facilities[]", "wifi"
+        %li
+          = label_tag "power outlets", "Power"
+        %li
+          = check_box_tag "facilities[]", "power"
+        %li
+          = label_tag "quiet", "Quiet"
+        %li
+          = check_box_tag "facilities[]", "quiet"
+    %div#tagssrch
+      = submit_tag "Find Coffeeshops" , id: "submit_address"
+      = button_tag "Use Geolocation", id: "geolocation"
