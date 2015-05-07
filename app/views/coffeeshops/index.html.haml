@@ -1,10 +1,15 @@
 %h1 Listing coffeeshops
 
 %ul
-  %li#userLat= @lat
-  %li#userLng= @lng
+  #userLat= @lat
+  #userLng= @lng
 
-#googleMap
+%br
+-if can? :create, Coffeeshop
+  = link_to 'New Coffeeshop', new_coffeeshop_path
+
+%p
+  #googleMap
 
 %table
   %thead
@@ -21,20 +26,15 @@
   %tbody
     - @coffeeshops.each do |coffeeshop|
       %tr
-        %td= coffeeshop.name
-        %td= coffeeshop.latitude
-        %td= coffeeshop.longitude
+        %td= link_to coffeeshop.name, coffeeshop
         %td= coffeeshop.address
         %td= coffeeshop.description
         %td= coffeeshop.picture
         %td= coffeeshop.user.name
         %td= coffeeshop.facilities.map{|f| "##{f.name}"}.join(", ")
-
-        %td= link_to 'Show', coffeeshop
+        
         -if can? :update, :destroy, Coffeeshop
           %td= link_to 'Edit', edit_coffeeshop_path(coffeeshop)
           %td= link_to 'Destroy', coffeeshop, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
--if can? :create, Coffeeshop
-  = link_to 'New Coffeeshop', new_coffeeshop_path
+
