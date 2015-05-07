@@ -29,7 +29,6 @@ myMap.getRequestURI = function(requestURI){
   requestURI = ''
   if(typeof params.commit !== 'undefined'){
     requestURI =  params.search + "&lat=" + params.lat + "&lng=" + params.lng;
-    console.log(typeof params.facilities);
    if(typeof params.facilities !== 'undefined'){ 
     for(var i= 0; i < params.facilities.length; i++){
         requestURI = requestURI + "&facilities[]=" + params.facilities[i];
