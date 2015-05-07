@@ -27,9 +27,8 @@
         <% if user_signed_in? %>
         <% if current_user.profile_pic.present? %>
         <li class="nav-link"><%= image_tag current_user.profile_pic.thumb.url %></li>
-        <li class="nav-link"><%= link_to "Edit", edit_user_registration_path(current_user)%></li>
         <% end %>
-        
+        <li class="nav-link"><%= link_to "Edit", edit_user_registration_path(current_user)%></li>
         <!-- <li ><%#= link_to "create facility", %></li> -->
         <li class="nav-link"><%= link_to current_user.name, current_user %></li>
         <li class="nav-link"><%= link_to "Logout", destroy_user_session_path, method: :delete %></li> 
@@ -42,7 +41,7 @@
     </nav>
    
   </div>
-</header>
+
 
      
      </nav>
