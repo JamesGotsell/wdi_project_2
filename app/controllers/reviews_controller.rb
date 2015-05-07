@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     @coffeeshop = Coffeeshop.find(params[:coffeeshop_id])
     @review = current_user
     @review = @coffeeshop.reviews.create(review_params)
-    if !current_user.nil?s
+    if !current_user.nil?
       @review.user_id = current_user.id
     end
     if @review.save
@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
         notice: 'Error creating review!'
     end
   end
+
 
 
 

@@ -1,6 +1,7 @@
 %h1 Listing coffeeshops
 
-%ul
+
+%ul#lat
   #userLat= @lat
   #userLng= @lng
 
@@ -10,17 +11,15 @@
   var params = #{params.to_json}
 %br
 -if can? :create, Coffeeshop
-  = link_to 'New Coffeeshop', new_coffeeshop_path
+  = link_to 'New Coffeeshop', new_coffeeshop_path, id: "uhm"
 
 %p
   #googleMap
 
-%table
+%table.table
   %thead
     %tr
       %th Name
-      %th Latitude
-      %th Longitude
       %th Address
       %th Description
       %th Picture
@@ -33,10 +32,10 @@
         %td= link_to coffeeshop.name, coffeeshop
         %td= coffeeshop.address
         %td= coffeeshop.description
-        %td= coffeeshop.picture
+        %td= image_tag coffeeshop.picture
         %td= coffeeshop.user.name
-        %td= coffeeshop.facilities.map{|f| "##{f.name}"}.join(", ")
-        
+        %td= coffeeshop.facilities.map{|f| "#{f.name}"}.join(", ")
+
         -if can? :update, :destroy, Coffeeshop
           %td= link_to 'Edit', edit_coffeeshop_path(coffeeshop)
           %td= link_to 'Destroy', coffeeshop, :method => :delete, :data => { :confirm => 'Are you sure?' }

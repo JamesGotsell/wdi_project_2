@@ -1,20 +1,28 @@
 @import "bourbon";
+@import "review";
+@import "base/base";
 @import "neat";
 @import "map";
+@import "base/base";
 @import "navbar";
 @import "footer";
-
+@import "home";
+@import "coffeeshop";
+@import "tags_facilities";
+@import "coffeeshopTableindex";
 
 body {
    max-width: 100%;
    margin: 0 auto;
    font-family: $helvetica;
-
+   text-align: center;
 }
 
 .main {
    max-width: 960px;
-   height: 960px;
+   height: relative;
    margin: 0 auto;
 }
+
+
 

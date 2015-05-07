@@ -7,6 +7,8 @@ class CoffeeshopsController < ApplicationController
     @coffeeshops = Coffeeshop.all
     @all_coffeeshops = @coffeeshops
 
+    #@avgrating = Coffeeshop.average_rating
+
     facilities = params[:facilities]
     address    = params[:search]
     @lat       = params[:lat]
