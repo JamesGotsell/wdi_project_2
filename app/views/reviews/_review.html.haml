@@ -1,6 +1,7 @@
 %p
   - if @reviews.length > 0
     - @reviews.each do |r|
+      %p
       = r.user.name
       = r.body
       = r.rating

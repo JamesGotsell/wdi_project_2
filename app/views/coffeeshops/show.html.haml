@@ -1,15 +1,14 @@
 
 %p#notice= notice
-
+%p
+  %b Average Rating:
+  = @coffeeshop.calculateAverage
 %p
   %b Rating:
   = @coffeeshop.average_rating
 
 %p
   %b Name:
-  = @coffeeshop.name
-%p
-  %b Ratings:
   = @coffeeshop.name
 %p
   %b Address:
@@ -31,7 +30,9 @@
 
 
 %h3 Reviews
+
 = render :partial => 'reviews/review'
+
 -#= render @coffeeshop.reviews
 = render :partial => 'reviews/form'
 
