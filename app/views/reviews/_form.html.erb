@@ -13,9 +13,21 @@
 <% if !current_user.nil? %>
 <%= hidden_field_tag :user_id, current_user.id %>
 
-<div class='field'>
-  <%= f.label :rating %><br>
-  <%#= f.input :rating, :collection => 1..5, :as => :radio %>
+<div class='field rating-box'>
+  <span="rating">
+    
+
+    <%= radio_button :review, :rating, 1 , :class => "rating-input" %>
+    <%= f.label :review, '1'%>
+     <%= radio_button :review, :rating, 2, :class => "rating-input" %>
+     <%= f.label :review, '2'%>
+     <%= radio_button :review, :rating, 3, :class => "rating-input" %>
+     <%= f.label :review, '3'%>
+     <%= radio_button :review, :rating, 4, :class => "rating-input" %>
+     <%= f.label :review, '4'%>
+    <%= radio_button :review, :rating, 5, :class => "rating-input" %>
+    <%= f.label :review, '5'%>
+  </span>
 </div>
 
 

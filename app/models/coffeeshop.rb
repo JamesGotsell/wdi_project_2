@@ -10,4 +10,9 @@ class Coffeeshop < ActiveRecord::Base
   after_validation :geocode, :reverse_geocode
   
   mount_uploader :picture, CoffeePictureUploader
+  
+#  def calculateAverage
+#    Coffeeshop.reviews.rating
+#  end
+
 end
