@@ -11,8 +11,12 @@ class Coffeeshop < ActiveRecord::Base
   
   mount_uploader :picture, CoffeePictureUploader
   
-#  def calculateAverage
-#    Coffeeshop.reviews.rating
-#  end
+  def calculateAverage
+    total = 1
+    if self.reviews.length != 0
+      total = self.reviews.length
+    end
+    self.reviews.inject(0){|sum , review | sum + review.rating.to_f }  /  total
+  end
 
 end
