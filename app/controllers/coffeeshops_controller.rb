@@ -15,14 +15,14 @@ class CoffeeshopsController < ApplicationController
     # Get actual address from address
 
 
+    # this should be a method in the model and then the method is called here and assigned to an instance variable
     if facilities.present?
       facilities.each do |facility|
         @coffeeshops = @coffeeshops & Coffeeshop.joins(:facilities).where(facilities: { name: facility })
       end
-  
     end
   
-    @coffeeshops = Coffeeshop.near([@lat, @lng]) if @lat.present? && @lng.present?  
+    @coffeeshops = @coffeeshops & Coffeeshop.near([@lat, @lng]) if @lat.present? && @lng.present?  
     
     end
 

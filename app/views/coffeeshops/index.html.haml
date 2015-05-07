@@ -4,6 +4,10 @@
   #userLat= @lat
   #userLng= @lng
 
+
+:javascript
+  var coffeeshops = #{@coffeeshops.to_json}
+  var params = #{params.to_json}
 %br
 -if can? :create, Coffeeshop
   = link_to 'New Coffeeshop', new_coffeeshop_path

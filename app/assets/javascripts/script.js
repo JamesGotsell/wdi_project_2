@@ -25,12 +25,33 @@ myMap.createMarkers = function(items){
   });
 }
 
+myMap.getRequestURI = function(requestURI){
+  requestURI = ''
+  if(typeof params.commit !== 'undefined'){
+    requestURI =  params.search + "&lat=" + params.lat + "&lng=" + params.lng;
+    console.log(typeof params.facilities);
+   if(typeof params.facilities !== 'undefined'){ 
+    for(var i= 0; i < params.facilities.length; i++){
+        requestURI = requestURI + "&facilities[]=" + params.facilities[i];
+      }
+    }
+      requestURI = requestURI + "&commit=Find+Coffeeshops"
+      requestURI= "?utf8=✓&search=" + encodeURI(requestURI);
+    
+  }
+  return requestURI
+}
+
 myMap.getData = function(resource){
+
+  var requestURI  = myMap.getRequestURI(requestURI); 
+  
   $.ajax({
     method: "GET",
-    url: "/" + resource + ".json",
+    url: "/" + resource + ".json" + requestURI,
     dataType: "json"
   }).done(function(data){
+
     myMap.createMarkers(data);
   });
 }
