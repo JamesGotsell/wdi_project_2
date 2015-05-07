@@ -1,14 +1,14 @@
-%p#notice= notice
 
+%p#notice= notice
+%p
+  %b Average Rating:
+  = @coffeeshop.calculateAverage
+%p
+  %b Average Rating:
+  = @coffeeshop.calculateAverage
 %p
   %b Name:
   = @coffeeshop.name
-%p
-  %b Latitude:
-  = @coffeeshop.latitude
-%p
-  %b Longitude:
-  = @coffeeshop.longitude
 %p
   %b Address:
   = @coffeeshop.address
@@ -17,11 +17,11 @@
   = @coffeeshop.description
 %p
   %b Picture:
-  = image_tag @coffeeshop.picture.thumb.url 
+  = image_tag @coffeeshop.picture.thumb.url
 
 %p
   %b Facilities:
-  = @coffeeshop.facilities.map{|f| "##{f.name}"}.join(", ")
+  = @coffeeshop.facilities.map{|f| "#{f.name}"}.join(", ")
 
 %p
   %b User:
@@ -29,7 +29,9 @@
 
 
 %h3 Reviews
+
 = render :partial => 'reviews/review'
+
 -#= render @coffeeshop.reviews
 = render :partial => 'reviews/form'
 

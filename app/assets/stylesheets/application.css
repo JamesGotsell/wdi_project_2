@@ -10,29 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require import  
  *= require_self
  */
 
- .rating {
-   overflow: hidden;
-   display: inline-block;
- }
- .rating-input {
-   position: absolute;
-   left: 0;
-   top: -50px;
- }
- .rating-star {
-   position: relative;
-   float: right;
-   display: block;
-   width: 16px;
-   height: 16px;
-   background: url('http://kubyshkin.ru/samples/star-rating/star.png') 0 -16px;
- }
- .rating-star:hover,
- .rating-star:hover ~ .rating-star,
- .rating-input:checked ~ .rating-star {
-   background-position: 0 0;
- }
+
+.profile_pic {
+  height: 
+  width: ;
+  background: pink;
+}
+

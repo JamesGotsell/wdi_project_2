@@ -5,24 +5,30 @@ class CoffeeshopsController < ApplicationController
   # GET /coffeeshops.json
   def index
     @coffeeshops = Coffeeshop.all
-    #only return an array of coffeeshops with the facilities specified in form
-    facilities_picked = params[:facilities_picked]
-    if !facilities_picked.nil?
-      facilities_picked.each do |facility_picked|
-      @coffeeshops = Coffeeshop.joins(:facilities).where(   facilities: { name: facility_picked })
+    @all_coffeeshops = @coffeeshops
+
+    #@avgrating = Coffeeshop.average_rating
+
+    facilities = params[:facilities]
+    address    = params[:search]
+    @lat       = params[:lat]
+    @lng       = params[:lng]
+
+    # Get actual address from address
+
+
+    if facilities.present?
+      facilities.each do |facility|
+        @coffeeshops = @coffeeshops & Coffeeshop.joins(:facilities).where(facilities: { name: facility })
       end
+  
+    end
+  
+    @coffeeshops = Coffeeshop.near([@lat, @lng]) if @lat.present? && @lng.present?  
+    
     end
 
-    if params[:search].nil?
-    @coffeeshops
-    else
-      @coffeeshops = @coffeeshops.near(params[:search])
-    end
-  end
-
-  # GET /coffeeshops/1
-  # GET /coffeeshops/1.json
-  def show
+   def show
     @coffeeshop = Coffeeshop.find(params[:id])
     @reviews = @coffeeshop.reviews
   end

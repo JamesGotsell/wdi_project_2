@@ -1,11 +1,12 @@
 %p
   - if @reviews.length > 0
     - @reviews.each do |r|
+      %p
       = r.user.name
-      = r.user.body
-      = r.user.rating
+      = r.body
+      = r.rating
   - else
-    This coffee doesn't have any reviews yet!
+    This coffeeshop doesn't have any reviews yet!
 
 
 
