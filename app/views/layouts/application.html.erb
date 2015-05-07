@@ -29,7 +29,6 @@
           <% end %>
           
           <li ><%= link_to "Edit", edit_user_registration_path(current_user)%></li>
-          <li ><%#= link_to "create facility", %></li>
           <li><%= link_to current_user.name, current_user %></li>
           <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li> 
           <% else %>

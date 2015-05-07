@@ -10,4 +10,7 @@ class Coffeeshop < ActiveRecord::Base
   after_validation :geocode, :reverse_geocode
   
   mount_uploader :picture, CoffeePictureUploader
+
+
+  #scope :average_rating, includes(:ratings).group('coffeeshop_id').where('AVERAGE(ratings.rating)');
 end

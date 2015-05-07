@@ -5,8 +5,32 @@
 
 // CREATE AUTOCOMPLETE
 // Use Google to create autocomplete field
+// Create iinfowindow populating with our data
 
 var myMap = myMap || {};
+
+var infowindow;
+
+myMap.createInfoWindow = function(marker, item){
+  google.maps.event.addListener(marker, 'click', function(){
+  
+    if(infowindow != undefined){
+      infowindow.close();
+    }
+
+    infowindow = new google.maps.InfoWindow({
+      content: "<p>Place: </p>" + item.name + "<p>Address: </p>"+ item.address 
+    });
+
+
+    infowindow.open(myMap, this)
+  });
+
+
+}
+
+
+
 
 myMap.createMarker = function(item){
   latLng = new google.maps.LatLng(item.latitude, item.longitude);
@@ -14,12 +38,15 @@ myMap.createMarker = function(item){
     position: latLng,
     map: this.map
   });
+  myMap.createInfoWindow(marker, item); 
+  //marker.setMap(myMap);
 }
 
 myMap.createMarkers = function(items){
   $.each(items, function(i, item){
     myMap.createMarker(item)
   });
+
 }
 
 myMap.getData = function(resource){

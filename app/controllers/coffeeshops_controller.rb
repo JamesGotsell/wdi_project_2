@@ -6,6 +6,8 @@ class CoffeeshopsController < ApplicationController
   def index
     @coffeeshops = Coffeeshop.all
 
+    #@avgrating = Coffeeshop.average_rating
+
     facilities = params[:facilities]
     address    = params[:search]
     @lat       = params[:lat]

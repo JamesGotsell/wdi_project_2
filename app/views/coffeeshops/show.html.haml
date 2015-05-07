@@ -1,14 +1,17 @@
+%p
+  - @recipes.each do |recipe|
+    Avg Rating 
+    = @coffeeshop.reviews.ratings.average(:ratings)
+
+
 %p#notice= notice
 
 %p
   %b Name:
   = @coffeeshop.name
 %p
-  %b Latitude:
-  = @coffeeshop.latitude
-%p
-  %b Longitude:
-  = @coffeeshop.longitude
+  %b Ratings:
+  = @coffeeshop.name
 %p
   %b Address:
   = @coffeeshop.address
@@ -17,11 +20,11 @@
   = @coffeeshop.description
 %p
   %b Picture:
-  = image_tag @coffeeshop.picture.thumb.url 
+  = image_tag @coffeeshop.picture.thumb.url
 
 %p
   %b Facilities:
-  = @coffeeshop.facilities.map{|f| "##{f.name}"}.join(", ")
+  = @coffeeshop.facilities.map{|f| "#{f.name}"}.join(", ")
 
 %p
   %b User:
