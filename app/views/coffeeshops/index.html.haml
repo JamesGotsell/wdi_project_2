@@ -1,13 +1,13 @@
 %h1 Listing coffeeshops
 
 
-%ul
+%ul#lat
   #userLat= @lat
   #userLng= @lng
 
 %br
 -if can? :create, Coffeeshop
-  = link_to 'New Coffeeshop', new_coffeeshop_path
+  = link_to 'New Coffeeshop', new_coffeeshop_path, id: "uhm"
 
 %p
   #googleMap
