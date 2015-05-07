@@ -1,10 +1,11 @@
 @import "bourbon";
+@import "base/base";
 @import "neat";
 @import "map";
 @import "base/base";
 @import "navbar";
 @import "footer";
-
+@import "coffeeshopTableindex";
 
 body {
    max-width: 100%;
@@ -15,7 +16,8 @@ body {
 
 .main {
    max-width: 960px;
-   height: 960px;
+   // height: 960px;
+   height: relative;
    margin: 0 auto;
 }
 
