@@ -44,10 +44,10 @@
     margin-right: 1em;
     margin-bottom: 1em;
 
-    @include media($large-screen) {
-      float: left;
-      margin-bottom: 0;
-    }
+    // @include media($large-screen) {
+    //   float: left;
+    //   margin-bottom: 0;
+    // }
   }
 
   .footer-logo img {
