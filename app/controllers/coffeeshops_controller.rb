@@ -24,7 +24,7 @@ class CoffeeshopsController < ApplicationController
   
     end
   
-    @coffeeshops = Coffeeshop.near([@lat, @lng]) if @lat.present? && @lng.present?  
+    @coffeeshops = @coffeeshops & Coffeeshop.near([@lat, @lng]) if @lat.present? && @lng.present?  
     
     end
 

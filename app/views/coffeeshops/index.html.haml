@@ -1,13 +1,13 @@
 %h1 Listing coffeeshops
 
 
-%ul
+%ul#lat
   #userLat= @lat
   #userLng= @lng
 
 %br
 -if can? :create, Coffeeshop
-  = link_to 'New Coffeeshop', new_coffeeshop_path
+  = link_to 'New Coffeeshop', new_coffeeshop_path, id: "uhm"
 
 %p
   #googleMap
@@ -21,6 +21,9 @@
       %th Picture
       %th User
       %th Facility
+      %th Edit
+      %th Destroy
+
       
   %tbody
     - @coffeeshops.each do |coffeeshop|
@@ -28,7 +31,7 @@
         %td= link_to coffeeshop.name, coffeeshop
         %td= coffeeshop.address
         %td= coffeeshop.description
-        %td= image_tag coffeeshop.picture
+        %td{:id => "coffee_shop_picture"}= image_tag coffeeshop.picture
         %td= coffeeshop.user.name
         %td= coffeeshop.facilities.map{|f| "#{f.name}"}.join(", ")
 

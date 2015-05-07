@@ -1,37 +1,37 @@
-
 %p#notice= notice
+
+
 %p
+  %h1= @coffeeshop.name
+  %br
   %b Average Rating:
   = @coffeeshop.calculateAverage
-%p
-  %b Average Rating:
-  = @coffeeshop.calculateAverage
-%p
-  %b Name:
-  = @coffeeshop.name
-%p
-  %b Address:
-  = @coffeeshop.address
-%p
-  %b Description:
-  = @coffeeshop.description
-%p
-  %b Picture:
-  = image_tag @coffeeshop.picture.thumb.url
 
-%p
-  %b Facilities:
-  = @coffeeshop.facilities.map{|f| "#{f.name}"}.join(", ")
-
-%p
-  %b User:
-  = @coffeeshop.user.name
-
-
+%table.table
+  %thead
+    %tr
+      %th Address
+      %th Description
+      %th Picture
+      %th Uploaded by
+      %th Facility
+      
+  %tbody
+    %tr
+      %td= @coffeeshop.address
+      %td= @coffeeshop.description
+      %td= image_tag @coffeeshop.picture
+      %td= @coffeeshop.user.name
+      %td= @coffeeshop.facilities.map{|f| "#{f.name}"}.join(", ")
 %h3 Reviews
 
 = render :partial => 'reviews/review'
-
 -#= render @coffeeshop.reviews
 = render :partial => 'reviews/form'
+
+-if can? :update, :destroy, Coffeeshop
+  %td= link_to 'Edit', edit_coffeeshop_path(@coffeeshop)
+  %td= link_to 'Destroy', @coffeeshop, :method => :delete, :data => { :confirm => 'Are you sure?'      }
+
+
 

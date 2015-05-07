@@ -1,0 +1,35 @@
+#landing_page_wrapper {
+  margin: auto;
+  text-align: center;
+}
+
+#lat, #lng {
+  display: none;
+}
+
+#search-form {
+  margin-top: 50px ;
+}
+
+#addresssrch, #tagssrch {
+  margin: 50px;
+}
+
+h1, h2, h3 {
+  font-family: 'Bevan', cursive;
+  font-size: 30px;
+  margin: auto;
+  padding-top: 35px;
+}
+
+#logo {
+  max-width: 300px;
+  max-height: 300px;
+  width: relative;
+  height: relative;
+}
+
+#uhm {
+  @include button;
+  width: 300px;
+}
