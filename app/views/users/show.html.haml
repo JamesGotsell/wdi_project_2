@@ -1,14 +1,13 @@
 %p#notice= notice
 %p
   = @user.name
-.profile_pic
-  = image_tag @user.profile_pic
+  = image_tag @user.profile_pic, :class => "profpic"
 %p
   %strong
     Coffeshops faved by #{@user.name}:
   %nav
     - @user.coffeeshops.each do |c|
-      %li
+      %li.coffeepic
         = link_to "#{c.name}", c
         %br/
         = link_to image_tag("#{c.picture}"), c
