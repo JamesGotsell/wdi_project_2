@@ -30,9 +30,7 @@ haml;
 sass (bourbon); 
 mobile responsive styling; 
 
-Benchmarking:
 
-(https://trello.com/c/xgppx9hN/2-user-stories)
 
 User stories:
 
