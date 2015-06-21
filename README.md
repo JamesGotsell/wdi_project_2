@@ -32,6 +32,8 @@ mobile responsive styling;
 
 Benchmarking:
 
+https://trello.com/c/xgppx9hN/2-user-stories
+
 User stories:
 
 Persona no.1: name: Peter
